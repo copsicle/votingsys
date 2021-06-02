@@ -35,4 +35,5 @@ Note: Make sure to go through the configuration files and replace USER with the 
 # Contact
 
 I understand that the information I put here about this project is not exactly in depth, if you wish you can contact me on Telegram for more details: @G_Afifa
+
 I will be able to supply my project book and explain the deployment details if needed.
