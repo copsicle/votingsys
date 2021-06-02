@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Advanced Authentication</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/RecordRTC.js' %}"></script>
+    <script src="{% static 'js/Advanced.js' %}"></script>
+</head>
+<body>
+    <div id="container">
+        <div class="container mt-2">
+            <div class="col justify-content-center d-grid gap-3">
+                <video autoplay="true"></video>
+                <button class="btn btn-primary w-auto" id="recordbutton" onclick="startRecording();">Record</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        let streamRecorder;
+        initCamera().then(function (stream) {streamRecorder = stream;});
+
+        function startRecording()
+        {
+            record(streamRecorder, "{% url 'basic:advanced' %}");
+        }
+    </script>
+</body>
+</html>

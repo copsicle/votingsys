@@ -1,0 +1,10 @@
+Django
+django-cors-headers
+uWSGI
+certbot
+certbot-nginx
+cmake
+face_recognition
+Pillow
+pylibmc
+opencv-python

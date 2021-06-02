@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+            {% for party in plist %}
+                .{{ party.letters }}{background-image:url({{ party.note.url }});}
+            {% endfor %}
+        </style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/form.css' %}">
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <title>Voting site</title>
+    </head>
+    <body>
+        <div class="form">
+            <div class="col text-center">
+                <form action="{% url 'voting:index' %}" method="post">
+                    {% csrf_token %}
+                    <fieldset class="form__options">
+                        <legend class="form__question">Please vote for your preferred party</legend>
+                            <p class="form__answer">
+                            {% for party in plist %}
+                                <input class="cc-selector" id="{{ party.letters }}" type="radio" name="note" value="{{ party.letters }}">
+                                <label class="drinkcard-cc {{ party.letters }}" for="{{ party.letters }}"></label>
+                            {% endfor %}
+                            </p>
+                        <button type="submit" class="btn btn-primary" value="Vote">Submit</button>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
