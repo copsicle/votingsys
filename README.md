@@ -1,13 +1,21 @@
 # General Voting System for Party Based Public Elections
 
 This is my final project for college, it is targeted to computerize our current election system over the internet.
-I have implemented basic authentication utilizing ID no. and birth date is used and then more advanced face recognition based authentication is used to authenticate the client.
+
+I have implemented basic authentication utilizing ID no. and birth date and then a more advanced face recognition based authentication.
+
 This system is not perfect, and it's not supposed to be, as it is my grad project.
+
 The project is built around a cluster of 3 main servers, in a production deployment there would be many clusters to increase decentralization.
+
 The cluster consists of 2 web servers (one for authentication and one for voting) and one cache server (Memcached), the seperation is important to seperate a voter from his vote.
+
 The two web servers run on Django (with uwsgi and nginx as the underlying server infrastructure), the folders in this repository represent the different servers accordingly to their name.
+
 There is little to no configuration needed for the cache server as it is not exposed to the internet, so it is omitted from this repo.
+
 The servers should all be connected with a private network to enable communication with the cache, there is no communication between the servers themselves that is not through the internet.
+
 A domain name is needed for a HTTPS certificate which is required for this system, you can acquire a free one at Freenom. The authentication server is given the index for the domain (@, www) while the voting server gets the vote subdomain.
 
 # Setup
