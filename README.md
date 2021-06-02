@@ -25,7 +25,7 @@ A domain name is needed for a HTTPS certificate which is required for this syste
 3. Insert the configuration files for each server accordingly and get the certificates for your domain
 4. Update the nginx configuration with the path to your certificates
 5. Update the settings.py file with your domain name, the cache private IP address and a new SECRET_KEY which can be generated using the python secrets library.
-6. Migrate the data models into the databases
+6. Migrate the data models into the databases and collect the static documents.
 7. Run uWSGI with the script provided either in a virtual terminal (screen) or as a system service.
 
 You should be able to access the site and utilize the admin panel (which should be disabled in production) to insert data.
