@@ -13,7 +13,7 @@ def index(request):
                                               "Too many tries, please try again later"
                                               "</center></strong></h1>")
     if request.session.get('status', 0) != 2:
-        return redirect(f"https:/{settings.ALLOWED_HOSTS[0]}/")
+        return redirect(f"https://{settings.ALLOWED_HOSTS[0]}/")
     elif request.session.get('age', datetime.utcnow()) <= datetime.utcnow():
         request.session.flush()
         return redirect(f"https://{settings.ALLOWED_HOSTS[0]}/")
